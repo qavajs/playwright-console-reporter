@@ -1,0 +1,26 @@
+{
+  "name": "playwright-console-reporter",
+  "version": "1.0.0",
+  "description": "playwright-console-reporter",
+  "homepage": "https://github.com/qavajs/playwright-console-reporter#readme",
+  "bugs": {
+    "url": "https://github.com/qavajs/playwright-console-reporter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qavajs/playwright-console-reporter.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --config test/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@qavajs/playwright-runner-adapter": "^2.3.2",
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.3"
+  }
+}

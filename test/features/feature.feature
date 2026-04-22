@@ -1,0 +1,71 @@
+@noParallel
+Feature: test feature
+
+  Background:
+    Given simple step
+
+  @noParallel
+  Scenario: simple scenario
+    Given open 'https://google.com' url
+
+  @tag
+  Scenario Outline: simple scenario <example>
+    Given open '<example>' url
+
+    Examples:
+      | example                    |
+      | https://www.wikipedia.org/ |
+      | https://www.saucedemo.com/ |
+
+  Scenario: data table
+    Given data table step
+      | 1 |
+      | 2 |
+
+  @oneTag @anotherTag
+  Scenario: multiline
+    Given multiline step
+      """
+      first
+      second
+      """
+
+  Scenario: log
+    Given log
+
+  Scenario: attach
+    Given attach
+
+  @notTag
+  Scenario: duplicate
+    Given log
+
+  Scenario: duplicate
+    Given log
+
+  Scenario Outline: duplicate scenario outline
+    Given log
+
+    Examples:
+      | example |
+      | 1       |
+      | 2       |
+      | 3       |
+
+  Scenario: custom fixture
+    Given custom fixture
+
+  Scenario: custom expect
+    Given custom expect
+
+  Scenario: support code library
+    Given support code library
+
+  Scenario: execute step
+    Given execute step
+
+  Scenario: template
+    Given template step
+
+  Scenario: cucumber config
+    Given cucumber config
