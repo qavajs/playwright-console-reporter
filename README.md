@@ -1,11 +1,11 @@
-# playwright-console-reporter
+# @qavajs/playwright-console-reporter
 
 A Cucumber-style console reporter for [Playwright Test](https://playwright.dev/)
 
 ## Installation
 
 ```bash
-npm install playwright-console-reporter
+npm install @qavajs/playwright-console-reporter
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   reporter: [
-    ['playwright-console-reporter']
+    ['@qavajs/playwright-console-reporter']
   ]
 });
 ```
@@ -28,16 +28,17 @@ export default defineConfig({
 ```ts
 export default defineConfig({
   reporter: [
-    ['playwright-console-reporter', { showOutput: true }]
+    ['@qavajs/playwright-console-reporter', { showOutput: true }]
   ]
 });
 ```
 
 ## Options
 
-| Option       | Type    | Default | Description                                                                 |
-|--------------|---------|---------|-----------------------------------------------------------------------------|
-| `showOutput` | boolean | `false` | Print captured stdout/stderr beneath each step (truncated to 60 chars/line) |
+| Option       | Type    | Default      | Description                                                                 |
+|--------------|---------|--------------|-----------------------------------------------------------------------------|
+| `showOutput` | boolean | `false`      | Print captured stdout/stderr beneath each step (truncated to 60 chars/line) |
+| `prefix`     | string  | `"Scenario"` | Label shown before each test name in the report                             |
 
 ## Output example
 
@@ -62,4 +63,4 @@ Status:    ✗ FAILED
 
 ## License
 
-ISC
+MIT
