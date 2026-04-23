@@ -1,6 +1,6 @@
 {
-  "name": "playwright-console-reporter",
-  "version": "1.0.0",
+  "name": "@qavajs/playwright-console-reporter",
+  "version": "0.1.0",
   "description": "playwright-console-reporter",
   "homepage": "https://github.com/qavajs/playwright-console-reporter#readme",
   "bugs": {
@@ -11,10 +11,12 @@
     "url": "git+https://github.com/qavajs/playwright-console-reporter.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Oleksandr Halichenko",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "lib/reporter.js",
+  "types": "lib/reporter.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "playwright test --config test/playwright.config.ts"
   },
   "devDependencies": {
