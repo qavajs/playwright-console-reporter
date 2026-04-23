@@ -38,6 +38,7 @@ interface OutputEntry {
 
 export default class CucumberConsoleReporter implements Reporter {
     private readonly showOutput: boolean;
+    private readonly prefix: string;
     private readonly stepStacks = new Map<string, TestStep[]>();
     private readonly stepOutputMap = new WeakMap<TestStep, OutputEntry[]>();
     private passedScenarios = 0;
@@ -47,8 +48,9 @@ export default class CucumberConsoleReporter implements Reporter {
     private failedSteps = 0;
     private skippedSteps = 0;
 
-    constructor(options: { showOutput?: boolean } = {}) {
+    constructor(options: { showOutput?: boolean; prefix?: string } = {}) {
         this.showOutput = options.showOutput ?? false;
+        this.prefix = options.prefix ?? 'Scenario';
     }
 
     printsToStdio(): boolean {
@@ -94,7 +96,7 @@ export default class CucumberConsoleReporter implements Reporter {
 
         const [sym, col] = statusStyle(status);
         const tags = test.tags.length > 0 ? `\n${fmt(test.tags.join(' '), LIGHT_BLUE)}` : '';
-        console.log(`${tags}\n${fmt('Scenario: ' + test.title, BOLD)}  ${fmt(`${sym} (${ms(duration)})`, col)}`);
+        console.log(`${tags}\n${fmt(this.prefix + ': ' + test.title, BOLD)}  ${fmt(`${sym} (${ms(duration)})`, col)}`);
 
         if (status === 'skipped') {
             console.log(fmt('    - (skipped)', GRAY, DIM));
